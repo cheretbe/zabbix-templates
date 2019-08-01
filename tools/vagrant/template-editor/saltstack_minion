@@ -1,0 +1,15 @@
+fileserver_backend:
+  - roots
+  - git
+#gitfs_remotes:
+#  - https://github.com/saltstack-formulas/tmux-formula.git
+
+file_client: local
+file_roots:
+  base:
+    - /srv/salt
+  template-editor:
+    - /srv/salt
+env_order:
+  - base
+  - template-editor
