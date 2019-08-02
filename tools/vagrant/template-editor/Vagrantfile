@@ -7,7 +7,7 @@ Vagrant.configure("2") do |config|
     # https://groups.google.com/forum/#!topic/vagrant-up/eZljy-bddoI
     vb.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ]
 
-    config.vm.synced_folder "../../saltstack/", "/srv/salt"
+    config.vm.synced_folder "../../saltstack/", "/srv"
     config.vm.synced_folder "../../../", "/multi-ip-ddclient"
   end
   config.vm.hostname = "template-editor"
