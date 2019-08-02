@@ -6,6 +6,9 @@
 base:
   '*':
     - utils
-template-editor:
-  'template-editor':
-    - zabbix-server
+
+    - zabbix.agent.repo
+    - zabbix.agent.conf
+
+    # - zabbix.server
+    # - zabbix.agent
