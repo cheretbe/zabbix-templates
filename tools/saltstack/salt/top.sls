@@ -6,9 +6,11 @@
 base:
   '*':
     - utils
+    - zabbix-repo
+    - zabbix-server
 
-    - zabbix.agent.repo
-    - zabbix.agent.conf
+    # - zabbix.agent.repo
+    # - zabbix.agent.conf
 
     # - zabbix.server
     # - zabbix.agent
