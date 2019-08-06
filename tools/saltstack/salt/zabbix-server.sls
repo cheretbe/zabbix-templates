@@ -23,10 +23,15 @@ apache_config_2:
     - name: /etc/zabbix/apache.conf
     - source: salt://config/apache.conf
 
-zabbix_config:
+zabbix_server_config:
   file.managed:
     - name: /etc/zabbix/zabbix_server.conf
     - source: salt://config/zabbix_server.conf
+
+zabbix_config:
+  file.managed:
+    - name: /etc/zabbix/web/zabbix.conf.php
+    - source: salt://config/zabbix.conf.php
 
 restart_apache_on_config_change:
   service:
