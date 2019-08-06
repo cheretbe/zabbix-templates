@@ -23,6 +23,11 @@ apache_config_2:
     - name: /etc/zabbix/apache.conf
     - source: salt://config/apache.conf
 
+zabbix_config:
+  file.managed:
+    - name: /etc/zabbix/zabbix_server.conf
+    - source: salt://config/zabbix_server.conf
+
 restart_apache_on_config_change:
   service:
     - name: apache2
@@ -31,3 +36,20 @@ restart_apache_on_config_change:
     - watch_any:
       - file: /etc/php/7.2/apache2/php.ini
       - file: /etc/zabbix/apache.conf
+
+create_database:
+  cmd.run:
+    - name: |
+        /usr/bin/mysql -u root -se "create database zabbixdb character set utf8 collate utf8_bin;
+            grant all privileges on zabbixdb.* to zabbixuser@localhost identified by 'Password';
+            flush privileges;"
+        /bin/zcat /usr/share/doc/zabbix-server-mysql/create.sql.gz | /usr/bin/mysql -u zabbixuser -pPassword zabbixdb
+    - unless: test -d /var/lib/mysql/zabbixdb/
+
+register_and_start_zabbix:
+  service:
+    - names:
+        - zabbix-server
+        - zabbix-agent
+    - running
+    - enable: True
