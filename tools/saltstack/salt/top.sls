@@ -8,6 +8,7 @@ base:
     - utils
     - zabbix-repo
     - zabbix-server
+    - development
 
     # - zabbix.agent.repo
     # - zabbix.agent.conf
