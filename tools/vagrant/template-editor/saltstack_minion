@@ -2,16 +2,7 @@ file_client: local
 
 fileserver_backend:
   - roots
-  - git
+#  - git
 
-gitfs_remotes:
- - https://github.com/saltstack-formulas/zabbix-formula.git
-
-# file_roots:
-#   base:
-#     - /srv/salt
-#   template-editor:
-#     - /srv/salt
-# env_order:
-#   - base
-#   - template-editor
+#gitfs_remotes:
+# - https://github.com/saltstack-formulas/zabbix-formula.git
