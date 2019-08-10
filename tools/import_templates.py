@@ -48,18 +48,19 @@ z_api.configuration.import_(
             "createMissing": True,
             "updateExisting": True
         },
-        "valueMaps": {
-            "createMissing": True,
-            "updateExisting": False
-        },
-        "hosts": {
-            "createMissing": True,
-            "updateExisting": True
-        },
         "items": {
             "createMissing": True,
             "updateExisting": True,
             "deleteMissing": True
+        },
+        "triggers": {
+            "createMissing": True,
+            "updateExisting": True,
+            "deleteMissing": True
+        },
+        "valueMaps": {
+            "createMissing": True,
+            "updateExisting": False
         }
     }
 })

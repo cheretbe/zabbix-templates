@@ -1,0 +1,104 @@
+{
+  "zabbix_export": {
+    "version": "4.0",
+    "date": "2019-08-10T06:40:40Z",
+    "groups": [
+      {
+        "name": "Linux servers"
+      }
+    ],
+    "templates": [
+      {
+        "template": "custom_template__Linux_server",
+        "name": "custom_template__Linux_server",
+        "description": "",
+        "groups": [
+          {
+            "name": "Linux servers"
+          }
+        ],
+        "applications": [],
+        "items": [
+          {
+            "name": "Free swap space in %",
+            "type": "0",
+            "snmp_community": "",
+            "snmp_oid": "",
+            "key": "system.swap.size[,pfree]",
+            "delay": "1m",
+            "history": "1w",
+            "trends": "365d",
+            "status": "0",
+            "value_type": "0",
+            "allowed_hosts": "",
+            "units": "%",
+            "snmpv3_contextname": "",
+            "snmpv3_securityname": "",
+            "snmpv3_securitylevel": "0",
+            "snmpv3_authprotocol": "0",
+            "snmpv3_authpassphrase": "",
+            "snmpv3_privprotocol": "0",
+            "snmpv3_privpassphrase": "",
+            "params": "",
+            "ipmi_sensor": "",
+            "authtype": "0",
+            "username": "",
+            "password": "",
+            "publickey": "",
+            "privatekey": "",
+            "port": "",
+            "description": "aaa_bbb",
+            "inventory_link": "0",
+            "applications": [],
+            "valuemap": [],
+            "logtimefmt": "",
+            "preprocessing": [],
+            "jmx_endpoint": "",
+            "timeout": "3s",
+            "url": "",
+            "query_fields": [],
+            "posts": "",
+            "status_codes": "200",
+            "follow_redirects": "1",
+            "post_type": "0",
+            "http_proxy": "",
+            "headers": [],
+            "retrieve_mode": "0",
+            "request_method": "0",
+            "output_format": "0",
+            "allow_traps": "0",
+            "ssl_cert_file": "",
+            "ssl_key_file": "",
+            "ssl_key_password": "",
+            "verify_peer": "0",
+            "verify_host": "0",
+            "master_item": []
+          }
+        ],
+        "discovery_rules": [],
+        "httptests": [],
+        "macros": [],
+        "templates": [],
+        "screens": []
+      }
+    ],
+    "triggers": [
+      {
+        "expression": "{custom_template__Linux_server:system.swap.size[,pfree].last(0)}<50",
+        "recovery_mode": "0",
+        "recovery_expression": "",
+        "name": "Lack of free swap space on {HOST.NAME}",
+        "correlation_mode": "0",
+        "correlation_tag": "",
+        "url": "",
+        "status": "0",
+        "priority": "2",
+        "description": "It probably means that the systems requires more physical memory.",
+        "type": "0",
+        "manual_close": "0",
+        "dependencies": [],
+        "tags": []
+      }
+    ]
+  }
+}
