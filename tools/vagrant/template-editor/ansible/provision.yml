@@ -12,3 +12,15 @@
 
     - include_role: name="/ansible-playbooks/zabbix-repo"
     - include_role: name="/ansible-playbooks/zabbix-server"
+
+    - name: Install 'python3-pip' package
+      apt:
+        name: "python3-pip"
+        # Fix for warning message "Could not find aptitude. Using apt-get instead"
+        force_apt_get: yes
+        update_cache: no
+
+    - name: Install Python 3 'zabbix_api' package
+      pip:
+        name: zabbix_api
+        executable: pip3
