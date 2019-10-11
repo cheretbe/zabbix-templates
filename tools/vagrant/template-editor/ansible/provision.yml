@@ -10,6 +10,5 @@
         repo: "https://github.com/cheretbe/ansible-playbooks.git"
         dest: "/ansible-playbooks"
 
-    - name: Include role test
-      include_role:
-        name: /ansible-playbooks/hello-world
+    - include_role: name="/ansible-playbooks/zabbix-repo"
+    - include_role: name="/ansible-playbooks/zabbix-server"
